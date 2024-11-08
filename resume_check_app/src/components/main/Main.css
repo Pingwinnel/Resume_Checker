@@ -1,0 +1,99 @@
+.main-container {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 34.37em;
+    position: relative;
+    margin: 3.12em auto;
+    padding: 3.12em 1.25em;
+    border-radius: 0.43em;
+    box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.form-label{
+    display: block;
+    position: relative;
+    background-color: #025bee;
+    color: #ffffff;
+    font-size: 1.12em;
+    font-weight: 500;
+    text-align: center;
+    width: 18.75em;
+    padding: 1.12em 0;
+    margin: auto;
+    border-radius: 0.31em;
+    cursor: pointer;
+}
+
+#num-of-files {
+    font-weight: 400;
+    text-align: center;
+    margin: 1.25em 0 1.87em 0;
+}
+
+ul {
+    list-style-type: none;
+}
+.main-container li {
+    font-weight: 500;
+    background-color: #eff5ff;
+    color: #025bee;
+    margin-bottom: 1em;
+    padding: 1.1em 1em;
+    border-radius: 0.3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main-container li p {
+    word-wrap: break-word;
+    word-break: break-word;
+    margin: 0;
+    flex: 1;/* Allow the <p> tags to share space evenly */
+    margin-right: 10px;
+}
+.main-container li p:nth-child(1) {
+    flex-basis: 70%; /* Adjust width of the first <p> */
+}
+
+.main-container li p:nth-child(2) {
+    flex-basis: 30%; /* Adjust width of the second <p> */
+    text-align: right; /* Align the second <p> to the right */
+}
+#files-list{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    text-wrap: wrap;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    text-wrap: wrap;
+}
+
+.upload_btn{
+    display: block;
+    position: relative;
+    background-color: green;
+    color: #ffffff;
+    font-size: 1.12em;
+    font-weight: 500;
+    text-align: center;
+    width: 18.75em;
+    padding: 1.12em 0;
+    margin: auto;
+    border-radius: 0.31em;
+    cursor: pointer;
+}
+
+.upload_btn:hover{
+    box-shadow: 5px 5px 22px  seagreen;
+}
+
+
