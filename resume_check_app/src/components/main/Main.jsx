@@ -4,7 +4,7 @@ const Main = () => {
     const [file, setFile] = useState(null);
 
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
+        setFile(e.target.files);
     };
 
     const handleUpload = async () => {
@@ -28,7 +28,7 @@ const Main = () => {
     };
     return (
         <div>
-            <input className={"input"} type={"file"} onChange={handleFileChange}/>
+            <input className={"input"} type={"file"} onChange={handleFileChange} multiple={true} />
             <button onClick={handleUpload}>Upload</button>
         </div>
     );
