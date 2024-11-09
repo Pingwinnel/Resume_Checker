@@ -41,9 +41,10 @@ const Main = () => {
             if (response.ok) {
                 const data = await response.json();
                 const falureCountVar=  data.failureCount;
+                const succesCountVar=data.successCount;
 
-                setSuccessCount(data.successCount || 0);
-                setFailureCount(data.failureCount || 0);
+                setSuccessCount(succesCountVar || 0);
+                setFailureCount(falureCountVar || 0);
                 setFailedFiles(data.failedFiles || []);
 
                 if (data.successCount === files.length) {
@@ -52,7 +53,7 @@ const Main = () => {
                         autoClose: 3000
                     });
                 } else {
-                    toast.success(`${data.successCount} PDFs uploaded successfully`, {
+                    toast.success(`${succesCountVar} PDFs uploaded successfully`, {
                         position: "top-center",
                         autoClose: 3000
                     });
