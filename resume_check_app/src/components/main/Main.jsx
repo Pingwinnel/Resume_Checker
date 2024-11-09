@@ -40,6 +40,7 @@ const Main = () => {
 
             if (response.ok) {
                 const data = await response.json();
+                const falureCountVar=  data.failureCount;
 
                 setSuccessCount(data.successCount || 0);
                 setFailureCount(data.failureCount || 0);
@@ -60,7 +61,8 @@ const Main = () => {
                         const failedFilesList = data.failedFiles.map((file, index) => (
                             <div key={file}>{index + 1}.{file}</div>
                         ));
-                        toast.error(<div>Failed to upload {failureCount} files:<br/>{failedFilesList}</div>, {
+
+                        toast.error(<div>Failed to upload {falureCountVar} files:<br/>{failedFilesList}</div>, {
                             position: "top-right",
                             autoClose: false,
                         });
