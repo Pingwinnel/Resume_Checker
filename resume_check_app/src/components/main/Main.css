@@ -16,7 +16,7 @@ input[type="file"] {
 .form-label{
     display: block;
     position: relative;
-    background-color: rgb(85, 174, 64);
+    background-image: linear-gradient(239.72deg, #38DC71 0%, #00812C 102.7%);;
     color: #ffffff;
     font-size: 1.12em;
     font-weight: 500;
@@ -43,7 +43,7 @@ ul {
 }
 .main-container li {
     font-weight: 500;
-    background-color: rgb(184, 223, 161);
+    background-color: rgb(79, 184, 78);
     color: #ffffff;
     margin-bottom: 1em;
     padding: 1.1em 1em;
@@ -84,7 +84,7 @@ form{
 .upload_btn{
     display: block;
     position: relative;
-    background-color: rgb(85, 174, 64);
+    background-image: linear-gradient(239.72deg, #38DC71 0%, #00812C 102.7%);;
     color: #ffffff;
     font-size: 1.12em;
     font-weight: 500;
@@ -95,10 +95,16 @@ form{
     border-radius: 0.31em;
     cursor: pointer;
     border: none;
+    margin-top: 10px;
 }
 
 .upload_btn:hover{
     box-shadow: 5px 5px 22px  rgb(167, 220, 167);
+}
+
+#num-of-files{
+    background-clip: text;
+    background-image: linear-gradient(238.76deg, #16C23C -0.53%, #2FA7CD 89.93%);;
 }
 
 
