@@ -114,7 +114,37 @@ form{
 
 #num-of-files{
     background-clip: text;
-    background-image: linear-gradient(238.76deg, #16C23C -0.53%, #2FA7CD 89.93%);;
+    background-image: linear-gradient(238.76deg, #16C23C -0.53%, #2FA7CD 89.93%);
 }
 
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px auto;
+}
+
+.modal {
+    width: 100%;
+    height: 40%;
+    position: relative;
+}
+
+.loader {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m:
+            conic-gradient(#0000 10%,#000),
+            linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
 
