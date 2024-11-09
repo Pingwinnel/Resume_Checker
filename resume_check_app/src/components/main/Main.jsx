@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import "./Main.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Main = () => {
@@ -31,13 +33,22 @@ const Main = () => {
             });
 
             if (response.ok) {
-                alert("PDF(s) uploaded successfully!");
+                toast.success("PDF file uploaded successfully.!", {
+                    position: "top-center",
+                    autoClose:2000
+                });
             } else {
                 const errorText = await response.text();
-                alert(errorText);
+                toast.error(errorText,{
+                    position: "top-center",
+                    autoClose:false
+                });
             }
         } catch (error) {
-            alert("Error uploading PDF(s): " + error.message);
+            toast.error("Error uploading PDF(s): " + error.message,{
+                position: "top-center",
+                autoClose:false
+            });
         }
     };
 
@@ -49,6 +60,7 @@ const Main = () => {
                 const data = await response.json();
                 setCandidates(data);
                 alert("Candidates retrieved successfully!");
+
             } else {
                 const errorText = await response.text();
                 alert("Failed to get candidates: " + errorText);
@@ -81,6 +93,7 @@ const Main = () => {
 
     return (
         <div className="main-container">
+            <ToastContainer/>
             <form className="form" onSubmit={submitFiles}>
                 <input
                     id="files"
@@ -94,16 +107,17 @@ const Main = () => {
                     <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     &nbsp; Choose Files To Upload
                 </label>
-                <div id="num-of-files">{files.length} Files Selected</div>
+                <div id="num-of-files">{selectedFiles.length} Files Selected</div>
                 <ul id="files-list">
                     {selectedFiles.map((file, index) => (
                         <li key={index}>
                             <p>{file.name}</p>
                             <p>{file.size}</p>
+
                         </li>
                     ))}
                 </ul>
-                <button className="upload_btn" type="submit">Upload</button>
+                <button className="upload_btn" type="submit" onClick={()=>setSelectedFiles([])}>Upload</button>
             </form>
         </div>
     );

@@ -21,7 +21,7 @@ input[type="file"] {
     font-size: 1.12em;
     font-weight: 500;
     text-align: center;
-    width: 18.75em;
+    width: 90%;
     padding: 1.12em 0;
     margin: auto;
     border-radius: 0.31em;
@@ -40,7 +40,12 @@ input[type="file"] {
 
 ul {
     list-style-type: none;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
 }
+
 .main-container li {
     font-weight: 500;
     background-color: rgb(79, 184, 78);
@@ -52,6 +57,7 @@ ul {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+
 }
 
 .main-container li p {
@@ -74,6 +80,11 @@ ul {
     width: 100%;
     flex-wrap: wrap;
     text-wrap: wrap;
+    overflow-y: auto;
+}
+
+#files-list::-webkit-scrollbar {
+    display: none;
 }
 form{
     display: flex;
@@ -89,13 +100,12 @@ form{
     font-size: 1.12em;
     font-weight: 500;
     text-align: center;
-    width: 18.75em;
+    width: 80%;
     padding: 1.12em 0;
-    margin: auto;
     border-radius: 0.31em;
     cursor: pointer;
     border: none;
-    margin-top: 10px;
+    margin: 30px auto 0;
 }
 
 .upload_btn:hover{
