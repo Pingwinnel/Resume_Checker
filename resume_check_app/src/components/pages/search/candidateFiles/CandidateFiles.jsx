@@ -11,14 +11,14 @@ const CandidateFiles = ({ results }) => {
                 const [firstName, lastName] = candidate.fullName.split(" ");
 
                 return (
-                    <div key={candidate._id.$oid} className="list__modal__item">
+                    <div key={candidate._id} className="list__modal__item">
                         <button
                             className="modal-show-button"
-                            onClick={() => setOpenCandidateId(candidate._id.$oid)}
+                            onClick={() => setOpenCandidateId(candidate._id)}
                         >
                             {firstName} {lastName}
                         </button>
-                        {openCandidateId === candidate._id.$oid && (
+                        {openCandidateId === candidate._id && (
                             <ModalFiles
                                 ModalInfoIsOpen={true}
                                 Candidate={candidate}
