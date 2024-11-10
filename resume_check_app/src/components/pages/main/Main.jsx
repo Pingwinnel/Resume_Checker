@@ -8,7 +8,7 @@ const Main = () => {
 
     const [files, setFiles] = useState("");
     const [selectedFiles, setSelectedFiles] = useState([]);
-    const [candidates, setCandidates] = useState([]);
+
     const [successCount, setSuccessCount] = useState(0);
     const [failureCount, setFailureCount] = useState(0);
     const [failedFiles, setFailedFiles] = useState([]);
@@ -92,37 +92,15 @@ const Main = () => {
     };
 
 
-    const getAllCandidates = async () => {
-        try {
-            const response = await fetch("http://localhost:8081/api/candidates");
-            if (response.ok) {
-                const data = await response.json();
-                setCandidates(data);
-                alert("Candidates retrieved successfully!");
 
-            } else {
-                const errorText = await response.text();
-                alert("Failed to get candidates: " + errorText);
-
-            }
-        } catch (error) {
-            alert("Error getting Candidates: " + error.message);
-        }
-    };
 
     const handleFileChange = (event) => {
         const files = event.target.files;
 
         const fileArray = Array.from(files).map((file) => {
-            const fileSize = (file.size / 1024).toFixed(1); // Convert to KB
-            let sizeDisplay = fileSize + 'KB';
 
-            if (fileSize >= 1024) {
-                const sizeInMB = (fileSize / 1024).toFixed(1);
-                sizeDisplay = sizeInMB + 'MB';
-            }
 
-            return {name: file.name, size: sizeDisplay};
+            return {name: file.name};
         });
 
         setSelectedFiles(fileArray);
@@ -133,7 +111,6 @@ const Main = () => {
     return (
         <div className="main-container">
             <ToastContainer/>
-
                 <form className="form" onSubmit={submitFiles}>
                     <input
                         id="files"
@@ -151,8 +128,8 @@ const Main = () => {
                     {loading ?
                         <div className='modal-container'>
                             <div className='modal'>
-                                <div className="loader"></div>
-                                Loading
+                                <div className="modal__loader"></div>
+                                <p className={"modal__text"}>Loading</p>
                             </div>
                         </div>
                         : <ul id="files-list">
@@ -164,7 +141,7 @@ const Main = () => {
                             ))}
                         </ul>}
 
-                    <button className="upload_btn" type="submit">Upload</button>
+                    <button className="upload_btn" type="submit"><p>Upload</p></button>
                 </form>
         </div>
     );

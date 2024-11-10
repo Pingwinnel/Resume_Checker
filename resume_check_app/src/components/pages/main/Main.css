@@ -3,10 +3,12 @@
     width: 90%;
     max-width: 34.37em;
     position: relative;
-    margin: 3.12em auto;
+    margin: auto;
     padding: 3.12em 1.25em;
     border-radius: 0.43em;
     box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
+    box-sizing: border-box;
+    max-height: 80%;
 }
 
 input[type="file"] {
@@ -90,10 +92,13 @@ form{
     display: flex;
     flex-direction: column;
     text-wrap: wrap;
+    height: 100%;
 }
 
 .upload_btn{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     background-image: linear-gradient(239.72deg, #38DC71 0%, #00812C 102.7%);;
     color: #ffffff;
@@ -101,7 +106,7 @@ form{
     font-weight: 500;
     text-align: center;
     width: 80%;
-    padding: 1.12em 0;
+    padding: 1.5em 0;
     border-radius: 0.31em;
     cursor: pointer;
     border: none;
@@ -128,10 +133,13 @@ form{
 .modal {
     width: 100%;
     height: 40%;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.loader {
+.modal__loader {
     width: 50px;
     padding: 8px;
     aspect-ratio: 1;
@@ -148,3 +156,9 @@ form{
 }
 @keyframes l3 {to{transform: rotate(1turn)}}
 
+.modal__text{
+    padding: 8px;
+    margin: 0 auto;
+    text-align: center;
+
+}

@@ -7,3 +7,7 @@
 body {
   background-color: rgb(233, 250, 252);
 }
+
+#root{
+  height: 100vh;
+}
