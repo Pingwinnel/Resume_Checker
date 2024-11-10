@@ -6,8 +6,8 @@ export const SearchBar = ({ setSearchQuery }) => {
     const [input, setInput] = useState("");
 
     const handleSearchClick = () => {
-        setSearchQuery(input);  // Pass input to the parent component
-        setInput("");  // Clear input field by updating state
+        setSearchQuery(input);
+        setInput("");
     };
 
     return (
