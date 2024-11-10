@@ -6,8 +6,9 @@ const CandidateFiles = ({ results }) => {
     const [openCandidateId, setOpenCandidateId] = useState(null);
 
     const dubug=(candidate)=>{
+        console.log(openCandidateId);
         setOpenCandidateId(null)
-        console.log(candidate._id)
+        console.log(candidate)
     }
 
     return (
