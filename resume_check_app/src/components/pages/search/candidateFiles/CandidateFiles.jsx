@@ -8,15 +8,15 @@ const CandidateFiles = ({ results }) => {
     const renderCandidate = (candidate) => {
         const [firstName, lastName] = candidate.fullName.split(" ");
         return (
-            <div key={candidate._id} className="list__modal__item">
+            <div key={candidate.id} className="list__modal__item">
                 <button
                     className="modal-show-button"
-                    onClick={() => setOpenCandidateId(candidate._id)}
+                    onClick={() => setOpenCandidateId(candidate.id)}
                 >
                     {firstName}, {lastName}
                 </button>
 
-                {openCandidateId === candidate._id && (
+                {openCandidateId === candidate.id && (
                     <ModalFiles
                         Candidate={candidate}
                         onClose={() => setOpenCandidateId(null)}
