@@ -18,13 +18,10 @@ const CandidateFiles = ({ results }) => {
                         >
                             {firstName} {lastName}
                         </button>
-                        {openCandidateId === candidate._id && (
                             <ModalFiles
-                                ModalInfoIsOpen={openCandidateId === candidate._id}
                                 Candidate={candidate}
                                 onClose={() => setOpenCandidateId(null)}
                             />
-                        )}
                     </div>
                 );
             })}
