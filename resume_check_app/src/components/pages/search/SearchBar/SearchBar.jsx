@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 
 export const SearchBar = ({ setSearchQuery }) => {
     const [input, setInput] = useState("");
+    const Search=document.getElementById("search-input")
 
     const handleSearchClick = () => {
         setSearchQuery(input);
-        setInput("");
+        Search.value = "";
+
     };
 
     return (

@@ -1,9 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+:root {
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #57bd84;
+    --font-fam: 'Lato', sans-serif;
+    --height: 5rem;
+    --btn-width: 8rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
 
 .input-wrapper {
     width: 100%;
-    height: 2.5rem;
+    height: 30%;
     border: none;
     border-radius: 10px;
     padding-left: 15px;
@@ -11,7 +22,6 @@
     background-color: white;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     margin: 0 auto;
 }
 
@@ -21,70 +31,62 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
 }
 
 .search__bar {
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-:root {
-    --rad: .7rem;
-    --dur: .3s;
-    --color-dark: #2f2f2f;
-    --color-light: #fff;
-    --color-brand: #57bd84;
-    --font-fam: 'Lato', sans-serif;
-    --height: 5rem;
-    --btn-width: 6rem;
-    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+    max-width: 100%;
+    height: 100%;
 }
 
 .searchTerm {
     width: 100%;
-    padding: 5px;
+    padding: 12px 15px;
     outline: none;
-    background-clip: text;
-    background-image: linear-gradient(238.76deg, #16C23C -0.53%, #2FA7CD 89.93%);
     border: none;
-    outline: 0;
     appearance: none;
     transition: all var(--dur) var(--bez);
     transition-property: width, border-radius;
     z-index: 1;
     position: relative;
-    height:36px ;
+    height: 100%;
+    font-size: 1.12em;
+    font-weight: 500;
+    flex-grow:1 ;
+}
+
+.searchTerm::placeholder {
+    font-size: 1.12em;
 }
 
 .searchButton {
-    width: 40px;
-    height: 36px;
+    width: 50px;
+    padding: 5px;
     border: 1px solid #00B4CC;
-    background: rgb(79, 184, 78);
+    background-image: linear-gradient(239.72deg, #38DC71 0%, #00812C 102.7%);;
     text-align: center;
     color: #fff;
-    border-radius: 0 5px 5px 0;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
     display: none;
     top: 0;
     right: 0;
     font-weight: bold;
     background: var(--color-brand);
     border-radius: 0 var(--rad) var(--rad) 0;
+    height: 100%;
+    justify-self: flex-end;
 }
+
 
 input:not(:placeholder-shown) {
     border-radius: var(--rad) 0 0 var(--rad);
     width: calc(100% - var(--btn-width));
-
     + button {
         display: block;
     }
 }
-
-
-

@@ -41,10 +41,10 @@ const Search = () => {
 
     return (
         <div className="search-container">
-            <ToastContainer />
             <div className="search-bar-container">
                 <SearchBar setSearchQuery={fetchData} />
             </div>
+            <ToastContainer />
             {loading ? <div className='modal-container'>
                 <div className='modal'>
                     <div className="modal__loader"></div>

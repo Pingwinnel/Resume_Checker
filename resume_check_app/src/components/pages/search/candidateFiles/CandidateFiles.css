@@ -4,7 +4,9 @@
 .list__candidates__container{
     display: flex;
     flex-direction: column;
-    height:55%;
+    height:70%;
+    margin-bottom: 50px;
+
 }
 
 .list__candidates{
@@ -40,11 +42,13 @@
     border: none;
     height: 100%;
     cursor: pointer;
-    background-color: rgb(79, 184, 78);
+    background-image: linear-gradient(239.72deg, #38DC71 0%, #00812C 102.7%);;
     color: white;
-    font-weight: bold;
-    font-size: 1em;
     border-radius: 20px;
+    font-size: 1.12em;
+    font-weight: 500;
+    padding: 1.12em 0;
+    text-align: center;
 }
 
 
