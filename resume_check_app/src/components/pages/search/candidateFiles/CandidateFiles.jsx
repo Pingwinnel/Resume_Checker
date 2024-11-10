@@ -5,6 +5,11 @@ import ModalFiles from "../ModalFiles/ModalFiles";
 const CandidateFiles = ({ results }) => {
     const [openCandidateId, setOpenCandidateId] = useState(null);
 
+    const dubug=(candidate)=>{
+        setOpenCandidateId(null)
+        console.log(candidate._id)
+    }
+
     return (
         <div className="list__candidates__container">
             {results && results.length > 0 && results.map((candidate) => {
@@ -15,13 +20,13 @@ const CandidateFiles = ({ results }) => {
                             className="modal-show-button"
                             onClick={() => setOpenCandidateId(candidate._id)}
                         >
-                            {firstName} {lastName}
+                            {firstName},{lastName}
                         </button>
 
                         {openCandidateId === candidate._id && (
                             <ModalFiles
                                 Candidate={candidate}
-                                onClose={() => setOpenCandidateId(null)}
+                                onClose={() => {dubug(candidate._id)}}
                             />
                         )}
                     </div>
