@@ -1,10 +1,8 @@
 import React from 'react';
 import "./ModalFiles.css";
 
-const ModalFiles = ({ ModalInfoIsOpen, Candidate, onClose }) => {
+const ModalFiles = ({ Candidate, onClose }) => {
     return (
-        <>
-            {ModalInfoIsOpen && (
                 <div className="modal__container">
                     <div className="modal-wrapper">
                         <div className="modal-content">
@@ -62,8 +60,6 @@ const ModalFiles = ({ ModalInfoIsOpen, Candidate, onClose }) => {
                         </div>
                     </div>
                 </div>
-            )}
-        </>
     );
 };
 
