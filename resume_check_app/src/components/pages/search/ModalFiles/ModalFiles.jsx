@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "./ModalFiles.css"
-const ModalFiles = ({ModalInfoIsOpen,onClose,children}) => {
+const ModalFiles = ({ModalInfoIsOpen,Candidate,onClose,children}) => {
 
     return (
         <>
