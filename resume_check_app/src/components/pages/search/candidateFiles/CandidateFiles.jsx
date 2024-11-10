@@ -3,7 +3,7 @@ import "./CandidateFiles.css";
 import ModalFiles from "../ModalFiles/ModalFiles";
 
 const CandidateFiles = ({ results }) => {
-    const [openCandidateId, setOpenCandidateId] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="list__candidates__container">
@@ -14,14 +14,16 @@ const CandidateFiles = ({ results }) => {
                     <div key={candidate._id} className="list__modal__item">
                         <button
                             className="modal-show-button"
-                            onClick={() => setOpenCandidateId(candidate._id)}
+                            onClick={() => setIsModalOpen(true)}
                         >
                             {firstName} {lastName}
                         </button>
+                        {isModalOpen=== true && (
                             <ModalFiles
                                 Candidate={candidate}
-                                onClose={() => setOpenCandidateId(null)}
+                                onClose={() => setIsModalOpen(false)}
                             />
+                        )}
                     </div>
                 );
             })}
