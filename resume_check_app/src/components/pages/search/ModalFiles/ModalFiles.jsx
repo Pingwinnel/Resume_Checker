@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import "./ModalFiles.css"
-const ModalFiles = ({ModalInfoIsOpen, Candidate,onClose,children}) => {
+const ModalFiles = ({ModalInfoIsOpen,onClose,children}) => {
 
     return (
         <>
             {ModalInfoIsOpen && (
-        <div className="modal">
+        <div className="modal__container">
             <div className="modal-wrapper">
                 <div className="modal-content">
                     <button className="modal-close-btn" onClick={()=>onClose()}>

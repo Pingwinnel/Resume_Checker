@@ -6,11 +6,11 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Search = () => {
     const [results, setResults] = useState([]);
-
+    const [loading, setLoading] = useState(false);
 
     const fetchData = async (searchQuery) => {
         if (!searchQuery) return;
-
+        setLoading(true);
         try {
             const response = await fetch(`http://localhost:8081/api/candidates/best-candidates?vacancyDescription=${searchQuery}&k=3`);
 
@@ -34,6 +34,9 @@ const Search = () => {
                 autoClose: false
             });
         }
+        finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -42,10 +45,18 @@ const Search = () => {
             <div className="search-bar-container">
                 <SearchBar setSearchQuery={fetchData} />
             </div>
+            {loading ? <div className='modal-container'>
+                <div className='modal'>
+                    <div className="modal__loader"></div>
+                    <p className={"modal__text"}>Loading</p>
+                </div>
+                </div> : <CandidateFiles results={results}/>
+}
 
-            <CandidateFiles results={results} />
-        </div>
-    );
-};
+</div>
+)
+;
+}
+;
 
 export default Search;

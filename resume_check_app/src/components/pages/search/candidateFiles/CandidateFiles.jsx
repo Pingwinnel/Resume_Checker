@@ -1,45 +1,82 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./CandidateFiles.css";
 import ModalFiles from "../ModalFiles/ModalFiles";
 
-
-const CandidateFiles = ({results}) => {
+const CandidateFiles = ({ results }) => {
     const [openCandidateId, setOpenCandidateId] = useState(null);
-
-
-
 
     return (
         <div className="list__candidates__container">
-            {results && results.length > 0 && results.map((candidate) => (
-                <div key={candidate.id} className="list__modal__item">
-                    <button
-                        className="modal-show-button"
-                        onClick={() => setOpenCandidateId(candidate.id)}
-                    >
-                        {candidate.fullName}
-                    </button>
-                    {openCandidateId === candidate.id && (
-                        <ModalFiles
-                            ModalInfoIsOpen={true}
-                            Candidate={candidate}
-                            onClose={() => setOpenCandidateId(null)}
+            {results && results.length > 0 && results.map((candidate) => {
+                const [firstName, lastName] = candidate.fullName.split(" ");
+
+                return (
+                    <div key={candidate._id.$oid} className="list__modal__item">
+                        <button
+                            className="modal-show-button"
+                            onClick={() => setOpenCandidateId(candidate._id.$oid)}
                         >
-                            <ul className="list__candidates">
-                                <li className="list__candidates__item">
-                                    {Object.entries(candidate).map(([key, value]) => (
-                                        key === "resumeFullText" || key === "label" ? null : (
-                                            <p key={key}>
-                                                <strong>{key}:</strong> {JSON.stringify(value)}
-                                            </p>
-                                        )
-                                    ))}
-                                </li>
-                            </ul>
-                        </ModalFiles>
-                    )}
-                </div>
-            ))}
+                            {firstName} {lastName}
+                        </button>
+                        {openCandidateId === candidate._id.$oid && (
+                            <ModalFiles
+                                ModalInfoIsOpen={true}
+                                Candidate={candidate}
+                                onClose={() => setOpenCandidateId(null)}
+                            >
+                                <div className="container">
+                                    <div className="header">
+                                        <div className="full-name">
+                                            <span className="first-name">{firstName}</span>
+                                            <span className="last-name">{lastName}</span>
+                                        </div>
+                                        <div className="contact-info">
+                                            {candidate.contactInfo}
+                                        </div>
+                                        <div className="about">
+                                            <span className="position">{candidate.position}</span>
+                                        </div>
+                                    </div>
+                                    <div className="details">
+                                        <div className="section">
+                                            <div className="section__title">Experience</div>
+                                            <div className="section__list">
+                                                {candidate.workExperience.map((experience, index) => (
+                                                    <div key={index} className="section__list-item">
+                                                        {experience}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="section">
+                                            <div className="section__title">Education</div>
+                                            <div className="section__list">
+                                                {candidate.education.map((edu, index) => (
+                                                    <div key={index} className="section__list-item">
+                                                        {edu}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="section">
+                                            <div className="section__title">Skills</div>
+                                            <div className="skills">
+                                                {candidate.skills
+                                                    .filter(skill => !/[а-яА-ЯёЁ]/.test(skill)) // исключаем навыки с кириллическими символами
+                                                    .map((skill, index) => (
+                                                        <div key={index} className="skills__item">
+                                                            {skill}
+                                                        </div>
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ModalFiles>
+                        )}
+                    </div>
+                );
+            })}
         </div>
     );
 };
