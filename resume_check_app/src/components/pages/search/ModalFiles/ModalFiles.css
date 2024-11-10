@@ -33,3 +33,7 @@
     transform:  translateY(-50px);
     transition: opacity 0.3s, transform 0.3s;
 }
+
+.modal-close-btn{
+    margin-bottom: 20px;
+}

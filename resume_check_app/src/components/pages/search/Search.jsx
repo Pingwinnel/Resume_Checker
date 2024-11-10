@@ -42,6 +42,7 @@ const Search = () => {
             <div className="search-bar-container">
                 <SearchBar setSearchQuery={fetchData} />
             </div>
+
             <CandidateFiles results={results} />
         </div>
     );
